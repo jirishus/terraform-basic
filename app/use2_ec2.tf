@@ -3,11 +3,11 @@
 ###################
 resource "aws_instance" "primary_app_server_use2" {
   provider      = aws.us_east_2
-  ami           = data.aws_ami.centos7.id
+  ami           = data.aws_ami.centos7_use2.id
   instance_type = "t2.micro"
 }
 
-data "aws_ami" "centos7" {
+data "aws_ami" "centos7_use2" {
   provider    = aws.us_east_2
   owners      = ["679593333241"]
   most_recent = true
