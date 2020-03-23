@@ -5,6 +5,14 @@ resource "aws_instance" "primary_app_server_usw2" {
   provider      = aws.us_west_2
   ami           = data.aws_ami.centos7_usw2.id
   instance_type = "t2.micro"
+
+  tags = {
+    Name = "primary-app-server-dev"
+  }
+
+  provisioner "local-exec" {
+    command = "echo ${aws_instance.primary_app_server_usw2.public_ip} > ip_address.txt"
+  }
 }
 
 data "aws_ami" "centos7_usw2" {
