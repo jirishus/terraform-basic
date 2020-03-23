@@ -31,10 +31,20 @@ resource "aws_vpc" "devops_usw2" {
   cidr_block = "10.0.0.0/16"
 }
 
+resource "aws_vpc" "devops_use2" {
+  provider = aws.us_west_2
+  # Specify primary CIDR block for this VPC
+  cidr_block = "10.0.0.0/16"
+}
+
 ###################
 ## Outputs
 ###################
 
 output "primary_vpc_usw2" {
   value = aws_vpc.devops_usw2.id
+}
+
+output "primary_vpc_use2" {
+  value = aws_vpc.devops_use2.id
 }
