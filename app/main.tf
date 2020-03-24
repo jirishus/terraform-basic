@@ -9,6 +9,9 @@
 ###################
 ## Data
 ###################
+locals {
+  env = terraform.workspace
+}
 
 ###################
 ## Providers
@@ -38,3 +41,7 @@ provider "aws" {
 ###################
 ## Outputs
 ###################
+
+output "terraform_workspace" {
+  value = terraform.workspace
+}
